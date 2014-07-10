@@ -1,0 +1,32 @@
+== About java-gobject-introspection ==
+
+The most up-to-date information is likely to be found on the GNOME
+wiki page: http://live.gnome.org/JGIR
+
+= BUILDING =
+
+You must have gobject-introspection and Python >= 2.3 installed.
+Additionally, the project depends on the following Java libraries:
+ASM: http://asm.objectweb.org/index.html
+JNA: https://jna.dev.java.net/
+gnu-getopt: http://www.urbanophile.com/arenn/hacking/download.html
+
+On Fedora:
+yum install objectweb-asm jna gnu-getopt
+
+Internally, the waf (http://code.google.com/p/waf/) build system is
+used, but a simple "configure" and "Makefile" wrapper is provided.
+You may use the standard:
+
+./configure --prefix=...
+make 
+sudo make install
+
+= Using =
+
+After installation, you can run the script:
+
+jgir-compile-all
+
+This will generate .jar files for each .typelib file you have
+installed.
