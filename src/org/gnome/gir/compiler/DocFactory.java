@@ -432,8 +432,13 @@ public class DocFactory {
 			File wd = gir.getParentFile();
 			if (wd == null)
 				wd = new File(System.getProperty("user.dir"));
-			File jar = new File(wd, gir.getName().replace(".gir", ".jar"));
-			generate(gir, jar, new File(args[1]));
+			File jar;
+			if (args.length > 2 && args[1].endsWith(".jar")) {
+			    jar = new File(args[1]);
+			} else {
+			    jar = new File(wd, gir.getName().replace(".gir", ".jar"));
+			}
+			generate(gir, jar, new File(args[args.length - 1]));
 		}
 	}
 }
