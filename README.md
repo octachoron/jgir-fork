@@ -10,16 +10,10 @@ Building requires older versions of several jars:
  * [ASM 3.1](http://forge.ow2.org/project/download.php?group_id=23&file_id=9308)
  * [Stringtemplate 3.2.1](https://github.com/antlr/website-st4/blob/gh-pages/download/stringtemplate-3.2.1.tar.gz)
 
-Put these in a directory under the project root called ```custom-jars```, and configure with
+Put these in a directory under the project root called ```custom-jars```, and configure with the following command (omit the ```--prefix``` if desired):
 
 ```
-XDG_DATA_DIRS="$PWD/custom-jars:/usr/share" ./configure
+XDG_DATA_DIRS="$PWD/custom-jars:/usr/share" ./configure --prefix=~/jgir-uninstalled
 ```
 
-```make``` and ```make install``` should work as usual. Installing into a custom directory is possible using
-
-```
-make DESTDIR=~/jgir-uninstalled install
-```
-
-This currently has a bug that causes a wrong jgir.jar path to be put on the classpath in the scripts.
+```make``` and ```make install``` should work as usual.
